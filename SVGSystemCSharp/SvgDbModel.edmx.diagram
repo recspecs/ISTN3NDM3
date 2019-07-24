@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d223c0e94155413a8aa49cac13f13b77" Name="Diagram1">
+        <EntityTypeShape EntityType="group32Model.Customer" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="group32Model.Customer_Payment" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="group32Model.Employee" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="group32Model.Product" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="group32Model.Purchase_Item" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="group32Model.Purchase_Order" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="group32Model.Sale_Item" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="group32Model.Sales_Order" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="group32Model.Supplier" Width="1.5" PointX="3.75" PointY="12.625" IsExpanded="true" />
+        <AssociationConnector Association="group32Model.FK_Customer_Payment_CustomerTable" ManuallyRouted="false" />
+        <AssociationConnector Association="group32Model.FK_Sales_Order_CustomerTable" ManuallyRouted="false" />
+        <AssociationConnector Association="group32Model.FK_Customer_Payment_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="group32Model.FK_Purchase_Order_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="group32Model.FK_Sales_Order_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="group32Model.FK_Purchase_Item_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="group32Model.FK_Sale_Item_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="group32Model.FK_Purchase_Item_Purchase_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="group32Model.FK_Purchase_Order_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="group32Model.FK_Sale_Item_Sales_Order" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

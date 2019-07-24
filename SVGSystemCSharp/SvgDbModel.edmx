@@ -1,0 +1,780 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="group32Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Cust_ID" />
+          </Key>
+          <Property Name="Cust_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cust_FName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Cust_LName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Cust_Type" Type="nvarchar" MaxLength="30" />
+          <Property Name="Cust_Bussiness_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cust_Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cust_Address1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cust_Address2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cust_Suburb" Type="nvarchar" MaxLength="30" />
+          <Property Name="Cust_City" Type="nvarchar" MaxLength="30" />
+          <Property Name="Cust_Postal_Code" Type="nvarchar" MaxLength="30" />
+          <Property Name="Cust_Contact_No" Type="nvarchar" MaxLength="30" />
+          <Property Name="Cust_Balance" Type="float" />
+          <Property Name="IsArchived" Type="bit" />
+        </EntityType>
+        <EntityType Name="Customer_Payment">
+          <Key>
+            <PropertyRef Name="Cust_Payment_ID" />
+          </Key>
+          <Property Name="Cust_Payment_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cust_Payment_Type" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Cust_Payment_Total_Amt" Type="float" Nullable="false" />
+          <Property Name="Cust_Payment_Date" Type="date" Nullable="false" />
+          <Property Name="Emp_ID" Type="int" Nullable="false" />
+          <Property Name="Cust_ID" Type="int" Nullable="false" />
+          <Property Name="IsArchived" Type="bit" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+          </Key>
+          <Property Name="Emp_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_FName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Emp_SName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Emp_Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Emp_Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Emp_Contact_No" Type="nvarchar" MaxLength="20" />
+          <Property Name="Emp_Type" Type="nvarchar" MaxLength="20" />
+          <Property Name="IsArchived" Type="bit" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Prod_Code" />
+          </Key>
+          <Property Name="Prod_Code" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Prod_Name" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="Prod_Cost_Price" Type="float" Nullable="false" />
+          <Property Name="Prod_Stock_Level" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Prod_VAT" Type="bit" />
+          <Property Name="Prod_Categories" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prod_Reorder_Threshold" Type="int" />
+          <Property Name="IsArchived" Type="bit" />
+        </EntityType>
+        <EntityType Name="Purchase_Item">
+          <Key>
+            <PropertyRef Name="PI_Line_No" />
+            <PropertyRef Name="PO_No" />
+          </Key>
+          <Property Name="PI_Line_No" Type="int" Nullable="false" />
+          <Property Name="PO_No" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PI_Qty" Type="smallint" Nullable="false" />
+          <Property Name="PI_Price" Type="float" Nullable="false" />
+          <Property Name="Prod_Code" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purchase_Order">
+          <Key>
+            <PropertyRef Name="PO_No" />
+          </Key>
+          <Property Name="PO_No" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PO_Date" Type="date" Nullable="false" />
+          <Property Name="PO_Total" Type="float" Nullable="false" />
+          <Property Name="PO_Received_Flag" Type="bit" Nullable="false" />
+          <Property Name="Emp_ID" Type="int" Nullable="false" />
+          <Property Name="Supp_ID" Type="int" Nullable="false" />
+          <Property Name="IsArchived" Type="bit" />
+        </EntityType>
+        <EntityType Name="Sale_Item">
+          <Key>
+            <PropertyRef Name="SI_Line_No" />
+            <PropertyRef Name="SO_ID" />
+          </Key>
+          <Property Name="SI_Line_No" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SO_ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SI_Qty" Type="smallint" Nullable="false" />
+          <Property Name="SI_Price" Type="float" Nullable="false" />
+          <Property Name="Prod_VAT" Type="bit" />
+          <Property Name="Prod_Code" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sales_Order">
+          <Key>
+            <PropertyRef Name="SO_ID" />
+          </Key>
+          <Property Name="SO_ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SO_Date" Type="date" Nullable="false" />
+          <Property Name="SO_Total" Type="float" Nullable="false" />
+          <Property Name="Cust_ID" Type="int" Nullable="false" />
+          <Property Name="Emp_ID" Type="int" Nullable="false" />
+          <Property Name="IsArchived" Type="bit" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Supp_ID" />
+          </Key>
+          <Property Name="Supp_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Supp_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Supp_Contact_No" Type="nvarchar" MaxLength="10" />
+          <Property Name="Supp_Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Supp_Contact_Person" Type="nvarchar" MaxLength="50" />
+          <Property Name="Supp_Address1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Supp_Address2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Supp_Surburb" Type="nvarchar" MaxLength="20" />
+          <Property Name="Supp_City" Type="nvarchar" MaxLength="20" />
+          <Property Name="Supp_Postal_Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsArchived" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Customer_Payment_CustomerTable">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Customer_Payment" Type="Self.Customer_Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Cust_ID" />
+            </Principal>
+            <Dependent Role="Customer_Payment">
+              <PropertyRef Name="Cust_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Payment_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Customer_Payment" Type="Self.Customer_Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="Customer_Payment">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Item_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Purchase_Item" Type="Self.Purchase_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Prod_Code" />
+            </Principal>
+            <Dependent Role="Purchase_Item">
+              <PropertyRef Name="Prod_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Item_Purchase_Order">
+          <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="1" />
+          <End Role="Purchase_Item" Type="Self.Purchase_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase_Order">
+              <PropertyRef Name="PO_No" />
+            </Principal>
+            <Dependent Role="Purchase_Item">
+              <PropertyRef Name="PO_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Order_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="Purchase_Order">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Order_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Supp_ID" />
+            </Principal>
+            <Dependent Role="Purchase_Order">
+              <PropertyRef Name="Supp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Item_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Sale_Item" Type="Self.Sale_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Prod_Code" />
+            </Principal>
+            <Dependent Role="Sale_Item">
+              <PropertyRef Name="Prod_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Item_Sales_Order">
+          <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="1" />
+          <End Role="Sale_Item" Type="Self.Sale_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sales_Order">
+              <PropertyRef Name="SO_ID" />
+            </Principal>
+            <Dependent Role="Sale_Item">
+              <PropertyRef Name="SO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sales_Order_CustomerTable">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Cust_ID" />
+            </Principal>
+            <Dependent Role="Sales_Order">
+              <PropertyRef Name="Cust_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sales_Order_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="Sales_Order">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="group32ModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer_Payment" EntityType="Self.Customer_Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase_Item" EntityType="Self.Purchase_Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase_Order" EntityType="Self.Purchase_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sale_Item" EntityType="Self.Sale_Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales_Order" EntityType="Self.Sales_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Customer_Payment_CustomerTable" Association="Self.FK_Customer_Payment_CustomerTable">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Customer_Payment" EntitySet="Customer_Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Payment_Employee" Association="Self.FK_Customer_Payment_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Customer_Payment" EntitySet="Customer_Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Item_Product" Association="Self.FK_Purchase_Item_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Purchase_Item" EntitySet="Purchase_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Item_Purchase_Order" Association="Self.FK_Purchase_Item_Purchase_Order">
+            <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+            <End Role="Purchase_Item" EntitySet="Purchase_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Order_Employee" Association="Self.FK_Purchase_Order_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Order_Supplier" Association="Self.FK_Purchase_Order_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Item_Product" Association="Self.FK_Sale_Item_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Sale_Item" EntitySet="Sale_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Item_Sales_Order" Association="Self.FK_Sale_Item_Sales_Order">
+            <End Role="Sales_Order" EntitySet="Sales_Order" />
+            <End Role="Sale_Item" EntitySet="Sale_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sales_Order_CustomerTable" Association="Self.FK_Sales_Order_CustomerTable">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Sales_Order" EntitySet="Sales_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sales_Order_Employee" Association="Self.FK_Sales_Order_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Sales_Order" EntitySet="Sales_Order" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="group32Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Cust_ID" />
+          </Key>
+          <Property Name="Cust_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cust_FName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cust_LName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cust_Type" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Cust_Bussiness_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cust_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cust_Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cust_Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cust_Suburb" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Cust_City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Cust_Postal_Code" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Cust_Contact_No" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Cust_Balance" Type="Double" />
+          <Property Name="IsArchived" Type="Boolean" />
+          <NavigationProperty Name="Customer_Payment" Relationship="Self.FK_Customer_Payment_CustomerTable" FromRole="Customer" ToRole="Customer_Payment" />
+          <NavigationProperty Name="Sales_Order" Relationship="Self.FK_Sales_Order_CustomerTable" FromRole="Customer" ToRole="Sales_Order" />
+        </EntityType>
+        <EntityType Name="Customer_Payment">
+          <Key>
+            <PropertyRef Name="Cust_Payment_ID" />
+          </Key>
+          <Property Name="Cust_Payment_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cust_Payment_Type" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cust_Payment_Total_Amt" Type="Double" Nullable="false" />
+          <Property Name="Cust_Payment_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Emp_ID" Type="Int32" Nullable="false" />
+          <Property Name="Cust_ID" Type="Int32" Nullable="false" />
+          <Property Name="IsArchived" Type="Boolean" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Customer_Payment_CustomerTable" FromRole="Customer_Payment" ToRole="Customer" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Customer_Payment_Employee" FromRole="Customer_Payment" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+          </Key>
+          <Property Name="Emp_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Emp_SName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Emp_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Emp_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Emp_Contact_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Emp_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IsArchived" Type="Boolean" />
+          <NavigationProperty Name="Customer_Payment" Relationship="Self.FK_Customer_Payment_Employee" FromRole="Employee" ToRole="Customer_Payment" />
+          <NavigationProperty Name="Purchase_Order" Relationship="Self.FK_Purchase_Order_Employee" FromRole="Employee" ToRole="Purchase_Order" />
+          <NavigationProperty Name="Sales_Order" Relationship="Self.FK_Sales_Order_Employee" FromRole="Employee" ToRole="Sales_Order" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Prod_Code" />
+          </Key>
+          <Property Name="Prod_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prod_Name" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prod_Cost_Price" Type="Double" Nullable="false" />
+          <Property Name="Prod_Stock_Level" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prod_VAT" Type="Boolean" />
+          <Property Name="Prod_Categories" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prod_Reorder_Threshold" Type="Int32" />
+          <Property Name="IsArchived" Type="Boolean" />
+          <NavigationProperty Name="Purchase_Item" Relationship="Self.FK_Purchase_Item_Product" FromRole="Product" ToRole="Purchase_Item" />
+          <NavigationProperty Name="Sale_Item" Relationship="Self.FK_Sale_Item_Product" FromRole="Product" ToRole="Sale_Item" />
+        </EntityType>
+        <EntityType Name="Purchase_Item">
+          <Key>
+            <PropertyRef Name="PI_Line_No" />
+            <PropertyRef Name="PO_No" />
+          </Key>
+          <Property Name="PI_Line_No" Type="Int32" Nullable="false" />
+          <Property Name="PO_No" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PI_Qty" Type="Int16" Nullable="false" />
+          <Property Name="PI_Price" Type="Double" Nullable="false" />
+          <Property Name="Prod_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Purchase_Item_Product" FromRole="Purchase_Item" ToRole="Product" />
+          <NavigationProperty Name="Purchase_Order" Relationship="Self.FK_Purchase_Item_Purchase_Order" FromRole="Purchase_Item" ToRole="Purchase_Order" />
+        </EntityType>
+        <EntityType Name="Purchase_Order">
+          <Key>
+            <PropertyRef Name="PO_No" />
+          </Key>
+          <Property Name="PO_No" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PO_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PO_Total" Type="Double" Nullable="false" />
+          <Property Name="PO_Received_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Emp_ID" Type="Int32" Nullable="false" />
+          <Property Name="Supp_ID" Type="Int32" Nullable="false" />
+          <Property Name="IsArchived" Type="Boolean" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Purchase_Order_Employee" FromRole="Purchase_Order" ToRole="Employee" />
+          <NavigationProperty Name="Purchase_Item" Relationship="Self.FK_Purchase_Item_Purchase_Order" FromRole="Purchase_Order" ToRole="Purchase_Item" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Purchase_Order_Supplier" FromRole="Purchase_Order" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Sale_Item">
+          <Key>
+            <PropertyRef Name="SI_Line_No" />
+            <PropertyRef Name="SO_ID" />
+          </Key>
+          <Property Name="SI_Line_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SO_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SI_Qty" Type="Int16" Nullable="false" />
+          <Property Name="SI_Price" Type="Double" Nullable="false" />
+          <Property Name="Prod_VAT" Type="Boolean" />
+          <Property Name="Prod_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Sale_Item_Product" FromRole="Sale_Item" ToRole="Product" />
+          <NavigationProperty Name="Sales_Order" Relationship="Self.FK_Sale_Item_Sales_Order" FromRole="Sale_Item" ToRole="Sales_Order" />
+        </EntityType>
+        <EntityType Name="Sales_Order">
+          <Key>
+            <PropertyRef Name="SO_ID" />
+          </Key>
+          <Property Name="SO_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SO_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SO_Total" Type="Double" Nullable="false" />
+          <Property Name="Cust_ID" Type="Int32" Nullable="false" />
+          <Property Name="Emp_ID" Type="Int32" Nullable="false" />
+          <Property Name="IsArchived" Type="Boolean" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Sales_Order_CustomerTable" FromRole="Sales_Order" ToRole="Customer" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Sales_Order_Employee" FromRole="Sales_Order" ToRole="Employee" />
+          <NavigationProperty Name="Sale_Item" Relationship="Self.FK_Sale_Item_Sales_Order" FromRole="Sales_Order" ToRole="Sale_Item" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Supp_ID" />
+          </Key>
+          <Property Name="Supp_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Supp_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Supp_Contact_No" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Supp_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Supp_Contact_Person" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Supp_Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Supp_Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Supp_Surburb" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Supp_City" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Supp_Postal_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsArchived" Type="Boolean" />
+          <NavigationProperty Name="Purchase_Order" Relationship="Self.FK_Purchase_Order_Supplier" FromRole="Supplier" ToRole="Purchase_Order" />
+        </EntityType>
+        <Association Name="FK_Customer_Payment_CustomerTable">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Customer_Payment" Type="Self.Customer_Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Cust_ID" />
+            </Principal>
+            <Dependent Role="Customer_Payment">
+              <PropertyRef Name="Cust_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sales_Order_CustomerTable">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Cust_ID" />
+            </Principal>
+            <Dependent Role="Sales_Order">
+              <PropertyRef Name="Cust_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Payment_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Customer_Payment" Type="Self.Customer_Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="Customer_Payment">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Order_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="Purchase_Order">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sales_Order_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="Sales_Order">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Item_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Purchase_Item" Type="Self.Purchase_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Prod_Code" />
+            </Principal>
+            <Dependent Role="Purchase_Item">
+              <PropertyRef Name="Prod_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Item_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Sale_Item" Type="Self.Sale_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Prod_Code" />
+            </Principal>
+            <Dependent Role="Sale_Item">
+              <PropertyRef Name="Prod_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Item_Purchase_Order">
+          <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="1" />
+          <End Role="Purchase_Item" Type="Self.Purchase_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase_Order">
+              <PropertyRef Name="PO_No" />
+            </Principal>
+            <Dependent Role="Purchase_Item">
+              <PropertyRef Name="PO_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Order_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Supp_ID" />
+            </Principal>
+            <Dependent Role="Purchase_Order">
+              <PropertyRef Name="Supp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Item_Sales_Order">
+          <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="1" />
+          <End Role="Sale_Item" Type="Self.Sale_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sales_Order">
+              <PropertyRef Name="SO_ID" />
+            </Principal>
+            <Dependent Role="Sale_Item">
+              <PropertyRef Name="SO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="group32ConnectionString" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Customer_Payment" EntityType="Self.Customer_Payment" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Purchase_Item" EntityType="Self.Purchase_Item" />
+          <EntitySet Name="Purchase_Order" EntityType="Self.Purchase_Order" />
+          <EntitySet Name="Sale_Item" EntityType="Self.Sale_Item" />
+          <EntitySet Name="Sales_Order" EntityType="Self.Sales_Order" />
+          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+          <AssociationSet Name="FK_Customer_Payment_CustomerTable" Association="Self.FK_Customer_Payment_CustomerTable">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Customer_Payment" EntitySet="Customer_Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sales_Order_CustomerTable" Association="Self.FK_Sales_Order_CustomerTable">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Sales_Order" EntitySet="Sales_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Payment_Employee" Association="Self.FK_Customer_Payment_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Customer_Payment" EntitySet="Customer_Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Order_Employee" Association="Self.FK_Purchase_Order_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sales_Order_Employee" Association="Self.FK_Sales_Order_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Sales_Order" EntitySet="Sales_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Item_Product" Association="Self.FK_Purchase_Item_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Purchase_Item" EntitySet="Purchase_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Item_Product" Association="Self.FK_Sale_Item_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Sale_Item" EntitySet="Sale_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Item_Purchase_Order" Association="Self.FK_Purchase_Item_Purchase_Order">
+            <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+            <End Role="Purchase_Item" EntitySet="Purchase_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Order_Supplier" Association="Self.FK_Purchase_Order_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Item_Sales_Order" Association="Self.FK_Sale_Item_Sales_Order">
+            <End Role="Sales_Order" EntitySet="Sales_Order" />
+            <End Role="Sale_Item" EntitySet="Sale_Item" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="group32ModelStoreContainer" CdmEntityContainer="group32ConnectionString">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="group32Model.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Cust_ID" ColumnName="Cust_ID" />
+                <ScalarProperty Name="Cust_FName" ColumnName="Cust_FName" />
+                <ScalarProperty Name="Cust_LName" ColumnName="Cust_LName" />
+                <ScalarProperty Name="Cust_Type" ColumnName="Cust_Type" />
+                <ScalarProperty Name="Cust_Bussiness_Name" ColumnName="Cust_Bussiness_Name" />
+                <ScalarProperty Name="Cust_Email" ColumnName="Cust_Email" />
+                <ScalarProperty Name="Cust_Address1" ColumnName="Cust_Address1" />
+                <ScalarProperty Name="Cust_Address2" ColumnName="Cust_Address2" />
+                <ScalarProperty Name="Cust_Suburb" ColumnName="Cust_Suburb" />
+                <ScalarProperty Name="Cust_City" ColumnName="Cust_City" />
+                <ScalarProperty Name="Cust_Postal_Code" ColumnName="Cust_Postal_Code" />
+                <ScalarProperty Name="Cust_Contact_No" ColumnName="Cust_Contact_No" />
+                <ScalarProperty Name="Cust_Balance" ColumnName="Cust_Balance" />
+                <ScalarProperty Name="IsArchived" ColumnName="IsArchived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer_Payment">
+            <EntityTypeMapping TypeName="group32Model.Customer_Payment">
+              <MappingFragment StoreEntitySet="Customer_Payment">
+                <ScalarProperty Name="Cust_Payment_ID" ColumnName="Cust_Payment_ID" />
+                <ScalarProperty Name="Cust_Payment_Type" ColumnName="Cust_Payment_Type" />
+                <ScalarProperty Name="Cust_Payment_Total_Amt" ColumnName="Cust_Payment_Total_Amt" />
+                <ScalarProperty Name="Cust_Payment_Date" ColumnName="Cust_Payment_Date" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="Cust_ID" ColumnName="Cust_ID" />
+                <ScalarProperty Name="IsArchived" ColumnName="IsArchived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="group32Model.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="Emp_FName" ColumnName="Emp_FName" />
+                <ScalarProperty Name="Emp_SName" ColumnName="Emp_SName" />
+                <ScalarProperty Name="Emp_Email" ColumnName="Emp_Email" />
+                <ScalarProperty Name="Emp_Password" ColumnName="Emp_Password" />
+                <ScalarProperty Name="Emp_Contact_No" ColumnName="Emp_Contact_No" />
+                <ScalarProperty Name="Emp_Type" ColumnName="Emp_Type" />
+                <ScalarProperty Name="IsArchived" ColumnName="IsArchived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="group32Model.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Prod_Code" ColumnName="Prod_Code" />
+                <ScalarProperty Name="Prod_Name" ColumnName="Prod_Name" />
+                <ScalarProperty Name="Prod_Cost_Price" ColumnName="Prod_Cost_Price" />
+                <ScalarProperty Name="Prod_Stock_Level" ColumnName="Prod_Stock_Level" />
+                <ScalarProperty Name="Prod_VAT" ColumnName="Prod_VAT" />
+                <ScalarProperty Name="Prod_Categories" ColumnName="Prod_Categories" />
+                <ScalarProperty Name="Prod_Reorder_Threshold" ColumnName="Prod_Reorder_Threshold" />
+                <ScalarProperty Name="IsArchived" ColumnName="IsArchived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchase_Item">
+            <EntityTypeMapping TypeName="group32Model.Purchase_Item">
+              <MappingFragment StoreEntitySet="Purchase_Item">
+                <ScalarProperty Name="PI_Line_No" ColumnName="PI_Line_No" />
+                <ScalarProperty Name="PO_No" ColumnName="PO_No" />
+                <ScalarProperty Name="PI_Qty" ColumnName="PI_Qty" />
+                <ScalarProperty Name="PI_Price" ColumnName="PI_Price" />
+                <ScalarProperty Name="Prod_Code" ColumnName="Prod_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchase_Order">
+            <EntityTypeMapping TypeName="group32Model.Purchase_Order">
+              <MappingFragment StoreEntitySet="Purchase_Order">
+                <ScalarProperty Name="PO_No" ColumnName="PO_No" />
+                <ScalarProperty Name="PO_Date" ColumnName="PO_Date" />
+                <ScalarProperty Name="PO_Total" ColumnName="PO_Total" />
+                <ScalarProperty Name="PO_Received_Flag" ColumnName="PO_Received_Flag" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="Supp_ID" ColumnName="Supp_ID" />
+                <ScalarProperty Name="IsArchived" ColumnName="IsArchived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale_Item">
+            <EntityTypeMapping TypeName="group32Model.Sale_Item">
+              <MappingFragment StoreEntitySet="Sale_Item">
+                <ScalarProperty Name="SI_Line_No" ColumnName="SI_Line_No" />
+                <ScalarProperty Name="SO_ID" ColumnName="SO_ID" />
+                <ScalarProperty Name="SI_Qty" ColumnName="SI_Qty" />
+                <ScalarProperty Name="SI_Price" ColumnName="SI_Price" />
+                <ScalarProperty Name="Prod_VAT" ColumnName="Prod_VAT" />
+                <ScalarProperty Name="Prod_Code" ColumnName="Prod_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales_Order">
+            <EntityTypeMapping TypeName="group32Model.Sales_Order">
+              <MappingFragment StoreEntitySet="Sales_Order">
+                <ScalarProperty Name="SO_ID" ColumnName="SO_ID" />
+                <ScalarProperty Name="SO_Date" ColumnName="SO_Date" />
+                <ScalarProperty Name="SO_Total" ColumnName="SO_Total" />
+                <ScalarProperty Name="Cust_ID" ColumnName="Cust_ID" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="IsArchived" ColumnName="IsArchived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="group32Model.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="Supp_ID" ColumnName="Supp_ID" />
+                <ScalarProperty Name="Supp_Name" ColumnName="Supp_Name" />
+                <ScalarProperty Name="Supp_Contact_No" ColumnName="Supp_Contact_No" />
+                <ScalarProperty Name="Supp_Email" ColumnName="Supp_Email" />
+                <ScalarProperty Name="Supp_Contact_Person" ColumnName="Supp_Contact_Person" />
+                <ScalarProperty Name="Supp_Address1" ColumnName="Supp_Address1" />
+                <ScalarProperty Name="Supp_Address2" ColumnName="Supp_Address2" />
+                <ScalarProperty Name="Supp_Surburb" ColumnName="Supp_Surburb" />
+                <ScalarProperty Name="Supp_City" ColumnName="Supp_City" />
+                <ScalarProperty Name="Supp_Postal_Code" ColumnName="Supp_Postal_Code" />
+                <ScalarProperty Name="IsArchived" ColumnName="IsArchived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
