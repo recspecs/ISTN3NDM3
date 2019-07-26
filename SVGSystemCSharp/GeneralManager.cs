@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using Guifreaks.Navisuite;
 
 namespace SVGSystemCSharp
 {
@@ -12,10 +13,13 @@ namespace SVGSystemCSharp
         public GeneralManager()
         {
             InitializeComponent();
+
+
+
+            //setup form resizing 
             gmResize = new clsResize(this);
             this.Load += new EventHandler(_Load);
             this.Resize += new EventHandler(_Resize);
-
         }
 
         private static void ConfigureCrystalReports()
@@ -25,6 +29,17 @@ namespace SVGSystemCSharp
         private void GeneralManager_Load(object sender, EventArgs e)
         {
             ConfigureCrystalReports();
+
+            
+            LogoPanelGM.Height = this.Height/7;
+            BlueStripGM.SuspendLayout();
+            BlueStripGM.Location = new Point(LogoPanelGM.Left, LogoPanelGM.Bottom);
+            BlueStripGM.Size = new Size(LogoPanelGM.Width, LogoPanelGM.Height / 10);
+            BlueStripGM.ResumeLayout(true);
+
+
+
+
         }
 
         private void _Load(object sender, EventArgs e)
@@ -50,20 +65,12 @@ namespace SVGSystemCSharp
 
         private void GeneralManager_Layout(object sender, LayoutEventArgs e)
         {
-            //this.SuspendLayout();
-            //LogoPanelGM.Height = this.Height / 10;
-           // BlueStripGM.Location = new Point(LogoPanelGM.Left, LogoPanelGM.Bottom);
-            //BlueStripGM.Size = new Size(LogoPanelGM.Width, LogoPanelGM.Height / 10);
-           // this.ResumeLayout();
+            
+           
 
         }
 
-        private void Button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void GeneralManager_Resize(object sender, EventArgs e)
+        private void ToolStripButton2_Click(object sender, EventArgs e)
         {
 
         }

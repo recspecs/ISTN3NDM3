@@ -39,6 +39,21 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Guifreaks.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b9e40ae01dee0076, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Downloads\Guifreaks-Navisuite-master\Bin\Guifreaks.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Guifreaks.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=86dab5aa2dd98116, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Downloads\Guifreaks-Navisuite-master\Bin\Guifreaks.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Guifreaks.Navisuite, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7f6dc13cbca790ea, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Downloads\Guifreaks-Navisuite-master\Bin\Guifreaks.Navisuite.dll</HintPath>
+    </Reference>
+    <Reference Include="Guifreaks.Navisuite.XmlSerializers">
+      <HintPath>..\..\..\..\Downloads\Guifreaks-Navisuite-master\Bin\Guifreaks.Navisuite.XmlSerializers.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -67,6 +82,12 @@
     </Compile>
     <Compile Include="Customer_Payment.cs">
       <DependentUpon>SvgDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntryForms\AddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataEntryForms\AddProduct.Designer.cs">
+      <DependentUpon>AddProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>SvgDbModel.tt</DependentUpon>
@@ -112,6 +133,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SvgDbModel.edmx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DataEntryForms\AddProduct.resx">
+      <DependentUpon>AddProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GeneralManager.resx">
       <DependentUpon>GeneralManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +147,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -150,6 +175,11 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\bookmark.png" />
+    <None Include="Resources\bookmark1.png" />
+    <None Include="Resources\Spinner.gif" />
+    <None Include="Resources\door-in-icon.png" />
+    <None Include="Resources\StatusHelp_16x.png" />
     <Content Include="SvgDbModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SvgDbModel.edmx</DependentUpon>
@@ -160,6 +190,9 @@
       <DependentUpon>SvgDbModel.edmx</DependentUpon>
       <LastGenOutput>SvgDbModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataEditForms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
