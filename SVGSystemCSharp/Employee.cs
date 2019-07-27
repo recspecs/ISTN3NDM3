@@ -17,9 +17,9 @@ namespace SVGSystemCSharp
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employee()
         {
-            this.Customer_Payment = new ObservableListSource<Customer_Payment>();
-            this.Purchase_Order = new ObservableListSource<Purchase_Order>();
-            this.Sales_Order = new ObservableListSource<Sales_Order>();
+            this.Customer_Payment = new HashSet<Customer_Payment>();
+            this.Purchase_Order = new HashSet<Purchase_Order>();
+            this.Sales_Order = new HashSet<Sales_Order>();
         }
     
         public int Emp_ID { get; set; }
@@ -32,10 +32,10 @@ namespace SVGSystemCSharp
         public Nullable<bool> IsArchived { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableListSource<Customer_Payment> Customer_Payment { get; set; }
+        public virtual ICollection<Customer_Payment> Customer_Payment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableListSource<Purchase_Order> Purchase_Order { get; set; }
+        public virtual ICollection<Purchase_Order> Purchase_Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableListSource<Sales_Order> Sales_Order { get; set; }
+        public virtual ICollection<Sales_Order> Sales_Order { get; set; }
     }
 }

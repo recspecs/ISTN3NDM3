@@ -88,7 +88,6 @@
     <Compile Include="GeneralManager.Designer.cs">
       <DependentUpon>GeneralManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="ObservableListSource.cs" />
     <Compile Include="Product.cs">
       <DependentUpon>SvgDbModel.tt</DependentUpon>
     </Compile>

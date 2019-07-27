@@ -13,10 +13,10 @@ namespace SVGSystemCSharp
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SvgDbContext : DbContext
+    public partial class group32ConnectionString : DbContext
     {
-        public SvgDbContext()
-            : base("name=SvgDbContext")
+        public group32ConnectionString()
+            : base("name=group32ConnectionString")
         {
         }
     
