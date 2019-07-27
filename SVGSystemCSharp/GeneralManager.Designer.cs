@@ -31,35 +31,35 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralManager));
             this.TopPanelGM = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.BlueStripGM = new System.Windows.Forms.Panel();
-            this.LogoPanelGM = new System.Windows.Forms.Panel();
-            this.LeftPanelGM = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.FinalSearchLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSearchEmployee = new System.Windows.Forms.Button();
             this.cbCriteriaEmployee = new System.Windows.Forms.ComboBox();
             this.tbQueryEmployee = new System.Windows.Forms.TextBox();
-            this.btnSearchEmployee = new System.Windows.Forms.Button();
+            this.BlueStripGM = new System.Windows.Forms.Panel();
+            this.LogoPanelGM = new System.Windows.Forms.Panel();
+            this.HelpStripGM = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.HelpStripGM = new System.Windows.Forms.ToolStrip();
+            this.LeftPanelGM = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TopPanelGM.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.FinalSearchLayout.SuspendLayout();
             this.LogoPanelGM.SuspendLayout();
+            this.HelpStripGM.SuspendLayout();
             this.LeftPanelGM.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.FinalSearchLayout.SuspendLayout();
-            this.HelpStripGM.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,6 +87,68 @@
             this.panel2.Size = new System.Drawing.Size(1536, 63);
             this.panel2.TabIndex = 2;
             // 
+            // FinalSearchLayout
+            // 
+            this.FinalSearchLayout.AutoSize = true;
+            this.FinalSearchLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.FinalSearchLayout.ColumnCount = 3;
+            this.FinalSearchLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.FinalSearchLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.FinalSearchLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.FinalSearchLayout.Controls.Add(this.btnSearchEmployee, 0, 0);
+            this.FinalSearchLayout.Controls.Add(this.cbCriteriaEmployee, 2, 0);
+            this.FinalSearchLayout.Controls.Add(this.tbQueryEmployee, 1, 0);
+            this.FinalSearchLayout.Location = new System.Drawing.Point(321, 15);
+            this.FinalSearchLayout.Margin = new System.Windows.Forms.Padding(0);
+            this.FinalSearchLayout.Name = "FinalSearchLayout";
+            this.FinalSearchLayout.RowCount = 1;
+            this.FinalSearchLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.FinalSearchLayout.Size = new System.Drawing.Size(849, 25);
+            this.FinalSearchLayout.TabIndex = 88;
+            // 
+            // btnSearchEmployee
+            // 
+            this.btnSearchEmployee.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSearchEmployee.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchEmployee.Image")));
+            this.btnSearchEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchEmployee.Location = new System.Drawing.Point(5, 0);
+            this.btnSearchEmployee.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnSearchEmployee.Name = "btnSearchEmployee";
+            this.btnSearchEmployee.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnSearchEmployee.Size = new System.Drawing.Size(263, 25);
+            this.btnSearchEmployee.TabIndex = 70;
+            this.btnSearchEmployee.Text = "Search";
+            this.btnSearchEmployee.UseVisualStyleBackColor = true;
+            // 
+            // cbCriteriaEmployee
+            // 
+            this.cbCriteriaEmployee.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbCriteriaEmployee.FormattingEnabled = true;
+            this.cbCriteriaEmployee.Items.AddRange(new object[] {
+            "By Employee ID",
+            "By First Name",
+            "By Surname"});
+            this.cbCriteriaEmployee.Location = new System.Drawing.Point(581, 2);
+            this.cbCriteriaEmployee.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.cbCriteriaEmployee.Name = "cbCriteriaEmployee";
+            this.cbCriteriaEmployee.Size = new System.Drawing.Size(263, 25);
+            this.cbCriteriaEmployee.TabIndex = 71;
+            this.cbCriteriaEmployee.Text = "By First Name";
+            // 
+            // tbQueryEmployee
+            // 
+            this.tbQueryEmployee.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbQueryEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbQueryEmployee.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbQueryEmployee.Location = new System.Drawing.Point(293, 0);
+            this.tbQueryEmployee.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.tbQueryEmployee.Multiline = true;
+            this.tbQueryEmployee.Name = "tbQueryEmployee";
+            this.tbQueryEmployee.Size = new System.Drawing.Size(263, 25);
+            this.tbQueryEmployee.TabIndex = 68;
+            this.tbQueryEmployee.Text = "Enter query ...";
+            // 
             // BlueStripGM
             // 
             this.BlueStripGM.BackColor = System.Drawing.Color.DarkBlue;
@@ -110,6 +172,52 @@
             this.LogoPanelGM.Size = new System.Drawing.Size(1536, 114);
             this.LogoPanelGM.TabIndex = 0;
             this.LogoPanelGM.Paint += new System.Windows.Forms.PaintEventHandler(this.LogoPanelGM_Paint);
+            // 
+            // HelpStripGM
+            // 
+            this.HelpStripGM.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.HelpStripGM.Dock = System.Windows.Forms.DockStyle.None;
+            this.HelpStripGM.GripMargin = new System.Windows.Forms.Padding(0);
+            this.HelpStripGM.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.HelpStripGM.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripSeparator1,
+            this.toolStripButton2});
+            this.HelpStripGM.Location = new System.Drawing.Point(1180, 0);
+            this.HelpStripGM.Name = "HelpStripGM";
+            this.HelpStripGM.Padding = new System.Windows.Forms.Padding(0);
+            this.HelpStripGM.Size = new System.Drawing.Size(148, 26);
+            this.HelpStripGM.TabIndex = 0;
+            this.HelpStripGM.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.AutoSize = false;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(62, 26);
+            this.toolStripButton1.Text = "Help";
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 26);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.AutoSize = false;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(78, 26);
+            this.toolStripButton2.Text = "Logout";
+            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.toolStripButton2.ToolTipText = "Return to the login screen.";
+            this.toolStripButton2.Click += new System.EventHandler(this.ToolStripButton2_Click);
             // 
             // LeftPanelGM
             // 
@@ -150,6 +258,56 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(152, 692);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // button9
+            // 
+            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button9.Location = new System.Drawing.Point(3, 591);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(146, 98);
+            this.button9.TabIndex = 6;
+            this.button9.Text = "button9";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button8.Location = new System.Drawing.Point(3, 493);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(146, 92);
+            this.button8.TabIndex = 5;
+            this.button8.Text = "button8";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button7.Location = new System.Drawing.Point(3, 395);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(146, 92);
+            this.button7.TabIndex = 4;
+            this.button7.Text = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button5.Location = new System.Drawing.Point(3, 297);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(146, 92);
+            this.button5.TabIndex = 3;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button4.Location = new System.Drawing.Point(3, 199);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(146, 92);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -173,56 +331,6 @@
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
-            // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(3, 199);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(146, 92);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.Location = new System.Drawing.Point(3, 297);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(146, 92);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button7.Location = new System.Drawing.Point(3, 395);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(146, 92);
-            this.button7.TabIndex = 4;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.Location = new System.Drawing.Point(3, 493);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(146, 92);
-            this.button8.TabIndex = 5;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button9.Location = new System.Drawing.Point(3, 591);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(146, 98);
-            this.button9.TabIndex = 6;
-            this.button9.Text = "button9";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.dataGridView1);
@@ -233,114 +341,6 @@
             this.panel3.Padding = new System.Windows.Forms.Padding(25);
             this.panel3.Size = new System.Drawing.Size(1346, 722);
             this.panel3.TabIndex = 5;
-            // 
-            // FinalSearchLayout
-            // 
-            this.FinalSearchLayout.AutoSize = true;
-            this.FinalSearchLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.FinalSearchLayout.ColumnCount = 3;
-            this.FinalSearchLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.FinalSearchLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.FinalSearchLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.FinalSearchLayout.Controls.Add(this.btnSearchEmployee, 0, 0);
-            this.FinalSearchLayout.Controls.Add(this.cbCriteriaEmployee, 2, 0);
-            this.FinalSearchLayout.Controls.Add(this.tbQueryEmployee, 1, 0);
-            this.FinalSearchLayout.Location = new System.Drawing.Point(344, 19);
-            this.FinalSearchLayout.Margin = new System.Windows.Forms.Padding(0);
-            this.FinalSearchLayout.Name = "FinalSearchLayout";
-            this.FinalSearchLayout.RowCount = 1;
-            this.FinalSearchLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.FinalSearchLayout.Size = new System.Drawing.Size(849, 25);
-            this.FinalSearchLayout.TabIndex = 88;
-            // 
-            // cbCriteriaEmployee
-            // 
-            this.cbCriteriaEmployee.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbCriteriaEmployee.FormattingEnabled = true;
-            this.cbCriteriaEmployee.Items.AddRange(new object[] {
-            "By Employee ID",
-            "By First Name",
-            "By Surname"});
-            this.cbCriteriaEmployee.Location = new System.Drawing.Point(581, 0);
-            this.cbCriteriaEmployee.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.cbCriteriaEmployee.Name = "cbCriteriaEmployee";
-            this.cbCriteriaEmployee.Size = new System.Drawing.Size(263, 25);
-            this.cbCriteriaEmployee.TabIndex = 71;
-            this.cbCriteriaEmployee.Text = "By First Name";
-            // 
-            // tbQueryEmployee
-            // 
-            this.tbQueryEmployee.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbQueryEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbQueryEmployee.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbQueryEmployee.Location = new System.Drawing.Point(293, 0);
-            this.tbQueryEmployee.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.tbQueryEmployee.Multiline = true;
-            this.tbQueryEmployee.Name = "tbQueryEmployee";
-            this.tbQueryEmployee.Size = new System.Drawing.Size(263, 25);
-            this.tbQueryEmployee.TabIndex = 68;
-            this.tbQueryEmployee.Text = "Enter query ...";
-            // 
-            // btnSearchEmployee
-            // 
-            this.btnSearchEmployee.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSearchEmployee.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchEmployee.Image")));
-            this.btnSearchEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchEmployee.Location = new System.Drawing.Point(5, 0);
-            this.btnSearchEmployee.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btnSearchEmployee.Name = "btnSearchEmployee";
-            this.btnSearchEmployee.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnSearchEmployee.Size = new System.Drawing.Size(263, 25);
-            this.btnSearchEmployee.TabIndex = 70;
-            this.btnSearchEmployee.Text = "Search";
-            this.btnSearchEmployee.UseVisualStyleBackColor = true;
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(62, 26);
-            this.toolStripButton1.Text = "Help";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 26);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.AutoSize = false;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(78, 26);
-            this.toolStripButton2.Text = "Logout";
-            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.toolStripButton2.ToolTipText = "Return to the login screen.";
-            this.toolStripButton2.Click += new System.EventHandler(this.ToolStripButton2_Click);
-            // 
-            // HelpStripGM
-            // 
-            this.HelpStripGM.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.HelpStripGM.Dock = System.Windows.Forms.DockStyle.None;
-            this.HelpStripGM.GripMargin = new System.Windows.Forms.Padding(0);
-            this.HelpStripGM.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.HelpStripGM.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripSeparator1,
-            this.toolStripButton2});
-            this.HelpStripGM.Location = new System.Drawing.Point(1180, 0);
-            this.HelpStripGM.Name = "HelpStripGM";
-            this.HelpStripGM.Padding = new System.Windows.Forms.Padding(0);
-            this.HelpStripGM.Size = new System.Drawing.Size(148, 26);
-            this.HelpStripGM.TabIndex = 0;
-            this.HelpStripGM.Text = "toolStrip1";
             // 
             // dataGridView1
             // 
@@ -371,15 +371,15 @@
             this.TopPanelGM.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.FinalSearchLayout.ResumeLayout(false);
+            this.FinalSearchLayout.PerformLayout();
             this.LogoPanelGM.ResumeLayout(false);
             this.LogoPanelGM.PerformLayout();
+            this.HelpStripGM.ResumeLayout(false);
+            this.HelpStripGM.PerformLayout();
             this.LeftPanelGM.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.FinalSearchLayout.ResumeLayout(false);
-            this.FinalSearchLayout.PerformLayout();
-            this.HelpStripGM.ResumeLayout(false);
-            this.HelpStripGM.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

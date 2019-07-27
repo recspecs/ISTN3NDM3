@@ -17,7 +17,7 @@ namespace SVGSystemCSharp
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Supplier()
         {
-            this.Purchase_Order = new HashSet<Purchase_Order>();
+            this.Purchase_Order = new ObservableListSource<Purchase_Order>();
         }
     
         public int Supp_ID { get; set; }
@@ -33,6 +33,6 @@ namespace SVGSystemCSharp
         public Nullable<bool> IsArchived { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Purchase_Order> Purchase_Order { get; set; }
+        public virtual ObservableListSource<Purchase_Order> Purchase_Order { get; set; }
     }
 }

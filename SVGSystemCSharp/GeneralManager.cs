@@ -2,13 +2,15 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using Guifreaks.Navisuite;
+
 
 namespace SVGSystemCSharp
 {
     public partial class GeneralManager : Form
     {
         clsResize gmResize;
+        SvgDbContext dbContext;
+
 
         public GeneralManager()
         {
