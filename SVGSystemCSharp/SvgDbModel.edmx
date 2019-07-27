@@ -571,7 +571,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="group32ConnectionString" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SvgDbContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Customer_Payment" EntityType="Self.Customer_Payment" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
@@ -627,7 +627,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="group32ModelStoreContainer" CdmEntityContainer="group32ConnectionString">
+        <EntityContainerMapping StorageEntityContainer="group32ModelStoreContainer" CdmEntityContainer="SvgDbContext">
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="group32Model.Customer">
               <MappingFragment StoreEntitySet="Customer">

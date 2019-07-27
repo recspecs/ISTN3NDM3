@@ -17,7 +17,7 @@ namespace SVGSystemCSharp
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Purchase_Order()
         {
-            this.Purchase_Item = new HashSet<Purchase_Item>();
+            this.Purchase_Item = new ObservableListSource<Purchase_Item>();
         }
     
         public string PO_No { get; set; }
@@ -30,7 +30,7 @@ namespace SVGSystemCSharp
     
         public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Purchase_Item> Purchase_Item { get; set; }
+        public virtual ObservableListSource<Purchase_Item> Purchase_Item { get; set; }
         public virtual Supplier Supplier { get; set; }
     }
 }
