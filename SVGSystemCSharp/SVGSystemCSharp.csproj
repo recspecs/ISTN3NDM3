@@ -139,9 +139,6 @@
     <EmbeddedResource Include="GeneralManager.resx">
       <DependentUpon>GeneralManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="New Product.resx">
-      <DependentUpon>New Product.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -183,18 +180,6 @@
     <None Include="Resources\Spinner.gif" />
     <None Include="Resources\door-in-icon.png" />
     <None Include="Resources\StatusHelp_16x.png" />
-    <None Include="Resources\Add-icon.png" />
-    <None Include="Resources\Utilities-System-Information-icon.png" />
-    <None Include="Resources\Utilities-System-Information-icon1.png" />
-    <None Include="Resources\D.png" />
-    <None Include="Resources\Add-icon1.png" />
-    <None Include="Resources\bin-black-full-icon.png" />
-    <None Include="Resources\save-icon.png" />
-    <None Include="Resources\Add-iTcon.png" />
-    <None Include="Resources\Banana-icon.png" />
-    <None Include="Resources\Coffee-icon.png" />
-    <None Include="Resources\Food-Macaron-icon.png" />
-    <None Include="Resources\Food-Cupcake-icon.png" />
     <Content Include="SvgDbModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SvgDbModel.edmx</DependentUpon>
