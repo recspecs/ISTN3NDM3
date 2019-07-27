@@ -37,6 +37,8 @@
             this.tbQueryEmployee = new System.Windows.Forms.TextBox();
             this.BlueStripGM = new System.Windows.Forms.Panel();
             this.LogoPanelGM = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.LogoGM = new System.Windows.Forms.Label();
             this.HelpStripGM = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -56,6 +58,7 @@
             this.panel2.SuspendLayout();
             this.FinalSearchLayout.SuspendLayout();
             this.LogoPanelGM.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.HelpStripGM.SuspendLayout();
             this.LeftPanelGM.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -164,6 +167,7 @@
             // 
             this.LogoPanelGM.BackColor = System.Drawing.Color.DarkGray;
             this.LogoPanelGM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LogoPanelGM.Controls.Add(this.panel1);
             this.LogoPanelGM.Controls.Add(this.HelpStripGM);
             this.LogoPanelGM.Dock = System.Windows.Forms.DockStyle.Top;
             this.LogoPanelGM.Location = new System.Drawing.Point(0, 0);
@@ -172,6 +176,27 @@
             this.LogoPanelGM.Size = new System.Drawing.Size(1536, 114);
             this.LogoPanelGM.TabIndex = 0;
             this.LogoPanelGM.Paint += new System.Windows.Forms.PaintEventHandler(this.LogoPanelGM_Paint);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.LogoGM);
+            this.panel1.Location = new System.Drawing.Point(46, 3);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 1;
+            // 
+            // LogoGM
+            // 
+            this.LogoGM.AutoSize = true;
+            this.LogoGM.Font = new System.Drawing.Font("Verdana", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogoGM.ForeColor = System.Drawing.Color.White;
+            this.LogoGM.Location = new System.Drawing.Point(3, 4);
+            this.LogoGM.Margin = new System.Windows.Forms.Padding(0);
+            this.LogoGM.Name = "LogoGM";
+            this.LogoGM.Size = new System.Drawing.Size(179, 78);
+            this.LogoGM.TabIndex = 0;
+            this.LogoGM.Text = "SVG";
             // 
             // HelpStripGM
             // 
@@ -375,6 +400,8 @@
             this.FinalSearchLayout.PerformLayout();
             this.LogoPanelGM.ResumeLayout(false);
             this.LogoPanelGM.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.HelpStripGM.ResumeLayout(false);
             this.HelpStripGM.PerformLayout();
             this.LeftPanelGM.ResumeLayout(false);
@@ -410,6 +437,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label LogoGM;
     }
 }
 
